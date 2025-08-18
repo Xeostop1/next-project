@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-
+import Image from "next/image";
 import { Metadata } from "next";
-import { title } from "process";
 import { getProducts, getProdut } from "@/service/products";
 
 type Props = {
@@ -23,9 +22,11 @@ export default async function ProductsPage({ params: { slug } }: Props) {
   if (!product) {
     notFound();
   }
+
   return (
     <div>
       <h1>{product.name} 페이지 </h1>
+      <Image src={`/images/${product.image}`} alt={product.name} width={300} height={300} />
     </div>
   );
 }

@@ -1,5 +1,9 @@
+import MeowArticle from "@/componets/MeowArticle";
 import { getProducts } from "@/service/products";
+
 import Link from "next/link";
+
+export const revalidate = 3;
 
 export default async function ProductsPage() {
   console.log("프류덕트 페이지 시작");
@@ -15,6 +19,7 @@ export default async function ProductsPage() {
           </li>
         ))}
       </ul>
+      <MeowArticle />
     </div>
   );
 }
